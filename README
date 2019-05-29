@@ -1,0 +1,5 @@
+1. Run "bundle" to install required gems
+
+2. Run ./get-weather "city"
+
+e.g ./get-weather "los angeles", ./get-weather "rancho palos verdes"

@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+require 'unirest'
+
+if ARGV.size == 0
+  puts "Please enter location with command"
+else
+  location = ARGV[0]
+  api_url = "https://api.openweathermap.org/data/2.5/weather?q=#{location.gsub(" ","%20")}&appid=29d693e8edc118ee26b7acc33ab9f63b&units=imperial"
+  res = Unirest.get(api_url)
+
+  if res.code == 401
+    puts "Invalid API key"
+  else
+    puts "The weather in #{location} is a #{res.body["weather"][0]["description"]} with a temperature of #{res.body["main"]["temp"]} degrees fahrenheit."
+  end
+end
